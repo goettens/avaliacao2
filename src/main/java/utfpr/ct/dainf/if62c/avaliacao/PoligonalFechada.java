@@ -21,10 +21,11 @@ public class PoligonalFechada extends Poligonal{
         int i = 0;
         
         while (i < n-1){
-            comprimento = vertices[i].dist(vertices[i+1]);
+            comprimento += Math.sqrt(Math.pow(this.vertices[i-1].x-this.vertices[i].x,2)+
+                Math.pow(this.vertices[i-1].y-this.vertices[i].y,2)+Math.pow(this.vertices[i-1].z-this.vertices[i].z,2));
+           i++;
         }
-        comprimento += Math.sqrt(Math.pow(vertices[0].x-vertices[n-1].x,2)+
-                Math.pow(vertices[0].y-vertices[n-1].y,2)+Math.pow(vertices[0].z-vertices[n-1].z,2));
+         comprimento += vertices[0].dist(vertices[i+1]);
         
         return comprimento;
     }
